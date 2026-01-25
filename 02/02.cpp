@@ -1,57 +1,67 @@
-// 02.cpp : Tento soubor obsahuje funkci main. Provádění programu se tam zahajuje a ukončuje.
+﻿// 02.cpp : Tento soubor obsahuje funkci main. Provádění programu se tam zahajuje a ukončuje.
 //
 
 #include <iostream>
 #include <ctime>
 
-using namespace std;
+using namespace std;    // abych se nemusela pokaždé odkazovat na tuto knihovnu
 
 int main()
 {
 
-    cout << "Pro začátek zadejte 1: ";
-    int zacatek;
-    cin >> zacatek;
-
-    while (zacatek == 1)
-    {
+    int volba;
+    do {
+        srand(time(0));     // inicializuje generátor náhodých čísel, aby při každém spuštění programu vznikla jiná posloupnost náhodných čísel
         int n;
         cout << "Zadejte cele cislo n: ";
         cin >> n;
+        int Od = 10;
+        int Do = 100;
+        int soucet = 0;
+        cout << "1: while \n2: do while\n3: for\n4: konec\nTvoje volba: ";
 
-        cout << "\nZadejte volbu cyklu: while - w, do while - d, for - f: ";
-        char volba;
         cin >> volba;
 
-        for (int i = 0; i <= n; i++)
-        {
-            
+        switch (volba) {
+        case 1: {
+            while (n > 0) {
+                int cislo = rand() % (Do - Od) + Od;    // generuje nahodna cela cisla
+                cout << cislo << endl;      // endl = ukončení řádku a zaroven vyprazdneni vystupniho bufferu
+                soucet += cislo;
+                n--;
+            }
+            cout << "soucet je :";
+            cout <<  soucet << endl;
+        }break;
+
+        case 2: {
+            do {
+                int cislo = rand() % (Do - Od) + Od;
+                cout << cislo << endl;
+                soucet += cislo;
+                n--;
+            } while (n > 0);
+            cout << "soucet je :";
+            cout << soucet << endl;
+        }break;
+
+        case 3: {
+            for (int i = 0; i < n; i++) {
+                int cislo = rand() % (Do - Od) + Od;
+                cout << cislo << endl;
+                soucet += cislo;
+            }
+            cout << "soucet je :";
+            cout << soucet << endl;
+        } break;
+
+        case 4: {
+            cout << "A je konec";
+        }break;
+
         }
 
-        if (volba == 'w') 
-        {
-
-        }
-
-        if (volba == 'd')
-        {
-        }
-
-        if (volba == 'f')
-        {
-        }
-
-        continue;
-    }
-
+    } while (volba != 4);
     
+
 }
-
-// Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
-// Ladění programu: F5 nebo nabídka Ladit > Spustit ladění
-
-// C++ Na vstupu je dáno celé číslo n. 
-// Vygenerujte n-prvkovou posloupnost náhodných reálných čísel z intervalu <10;100). 
-// Určete a vypište součet prvků posloupnosti. Nechte uživatele zvolit, jakým typem cyklu bude součet spočítán – while, 
-// do while a for. Nabídka se bude cyklicky opakovat, dokud uživatel nezadá
-//čtvrtou volbu – KONEC.
