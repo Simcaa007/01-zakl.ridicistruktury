@@ -27,17 +27,44 @@ namespace _06
             if (radioButton1.Checked)
             {
                 int cislo = int.Parse(nstring);
-                int soucin = 1;
+                int soucet = 0;
 
                 while (cislo > 0)
                 {
                     int zbytek = cislo % 10;
 
-                    soucin *= zbytek;
+                    soucet += zbytek;
 
                     cislo = cislo / 10;
                 }
-                MessageBox.Show(soucin.ToString());
+                MessageBox.Show(soucet.ToString());
+            }
+
+            else if (radioButton2.Checked)
+            {
+                int soucet = 0;
+                foreach(char ch in nstring)
+                {
+                    int c = ch - '0';
+                    soucet += c;
+                }
+
+                MessageBox.Show(soucet.ToString());
+            }
+
+            else if(radioButton3.Checked)
+            {
+                int cislo = int.Parse(nstring);
+                int soucet = 0;
+                do
+                {
+                    int zbytek = cislo % 10;
+                    soucet += zbytek;
+                    cislo = cislo / 10;
+
+                } while (cislo > 0);
+
+                MessageBox.Show(soucet.ToString());
             }
         }
     }
