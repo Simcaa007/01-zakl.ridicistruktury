@@ -35,14 +35,13 @@ int main()
 
 			double a = (double)rand() / (RAND_MAX + 1) * (20 - 2) + 2; // (double)rand()/(RAND_MAX + 1)*(Y-X)+X;
 			int n = rand() % (10 - (-8)) - 8;	// rand() % (b - a) + a;
-			
 			double soucin = 0;
 			while (a > 0) {
 				soucin += n;
 				a--;
 			}
 
-			cout << a << " " << n << " " << soucin << endl;
+			cout << soucin << endl;
 
 		}break;
 		}
