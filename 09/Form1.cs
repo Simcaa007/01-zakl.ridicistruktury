@@ -19,7 +19,7 @@ namespace _09
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int soucet = 0;
+            double soucet = 0;
             int pocet = 0;
             foreach (Control c in groupBox1.Controls)
             {
@@ -31,9 +31,18 @@ namespace _09
                 }
                 else if(c is Label)
                 {
-
+                    c.Text = listBox1.SelectedItem.ToString();
                 }
             }
+            double prumer = Math.Round(soucet / pocet, 2);
+            MessageBox.Show($"Prumer je : {prumer}");
         }
+
+        /*
+           VYSVETLENI: foreach je v tomto případě vhodný, 
+           protože tvým cílem je pouze "posbírat" data 
+           ze všech prvků určitého typu bez ohledu na jejich pozici
+         */
+
     }
 }
