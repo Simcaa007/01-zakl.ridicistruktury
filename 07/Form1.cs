@@ -29,32 +29,55 @@ namespace _07
                 listBox1.Items.Add(cislo);
             }
 
-            if (comboBox1.SelectedIndex == 0 )
+            switch (comboBox1.SelectedIndex)
             {
-                foreach(int i in listBox1.Items)
+                case 0:
                 {
-                    int cislo = i;
+                        foreach (int i in listBox1.Items)
+                        {
+                            int cislo = i;
 
-                    if (cislo > 20 && cislo <= 25)
-                    {
-                        cisloZIntervalu = true;
-                        MessageBox.Show("Ano, bylo nalezeno cislo z intervalu");
-                        break;
-                    }
-                }
-            }else if (comboBox1.SelectedIndex == 1 )
-            {
-                for (int i = 0; i < n; i++)
+                            if (cislo > 20 && cislo <= 25)
+                            {
+                                cisloZIntervalu = true;
+                                MessageBox.Show("Ano, bylo nalezeno cislo z intervalu");
+                                break;
+                            }
+                        }
+                }break;
+                
+                case 1:
                 {
-                    int cislo = (int)listBox1.Items[i];
+                        bool nalezeno = false;
+                        for (int i = 0; i < n && !nalezeno; i++)
+                        {
+                            int cislo = (int)listBox1.Items[i];
 
-                    if (cislo > 20 && cislo <= 25)
+                            if (cislo > 20 && cislo <= 25)
+                            {
+                                cisloZIntervalu = true;
+                                nalezeno = true;
+                                MessageBox.Show("Ano, bylo nalezeno cislo z intervalu");
+                            }
+                        }
+                }break;
+                
+                case 2:
+                {
+                        bool nalezeno = false;
+                    while (n > 0)
                     {
-                        cisloZIntervalu = true;
-
+                            int cislo = (int)listBox1.Items[n - 1];
+                            if (cislo > 20 && cislo <= 25)
+                            {
+                                cisloZIntervalu = true;
+                                nalezeno = true;
+                                MessageBox.Show("Ano, bylo nalezeno cislo z intervalu");
+                            }
+                            n--;
                     }
 
-                }
+                }break;
             }
         }
     }
