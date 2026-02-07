@@ -36,13 +36,15 @@ namespace _09
             }
             double prumer = Math.Round(soucet / pocet, 2);
             MessageBox.Show($"Prumer je : {prumer}");
-        }
 
-        /*
+            /*
            VYSVETLENI: foreach je v tomto případě vhodný, 
            protože tvým cílem je pouze "posbírat" data 
            ze všech prvků určitého typu bez ohledu na jejich pozici
          */
+
+        }
+
 
     }
 }
